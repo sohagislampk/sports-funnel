@@ -1,9 +1,22 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
+import Sports from '../Sports/Sports';
 
 const Home = () => {
+    const data = useLoaderData();
+    const allSports = data.sports
+    console.log(allSports);
     return (
-        <div>
-            <h1>i am home</h1>
+        <div className='grid grid-cols-3 gap-2 mx-10 my-5'>
+            {
+                allSports.map(sports =>
+                    <Sports
+                        key={sports.idSport}
+                        sports={sports}
+
+                    ></Sports>
+                )
+            }
         </div>
     );
 };

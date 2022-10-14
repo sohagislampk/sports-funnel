@@ -8,9 +8,10 @@ function App() {
     {
       path: '/',
       element: <Main></Main>,
-      childredn: [
+      children: [
         {
           path: '/',
+          loader: () => { return fetch('https://www.thesportsdb.com/api/v1/json/2/all_sports.php') },
           element: <Home></Home>
         }
       ]
